@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Tickets</title>
+</head>
+<body>
+    <h1>Tickets to Display</h1>
+    <ul>
+        {% for ticket in tickets %}
+            <li>{{ ticket.c_value }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

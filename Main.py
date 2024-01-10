@@ -1,5 +1,6 @@
 import gspread
 from datetime import datetime
+from flask import Flask, render_template
 
 # Connect to the service account
 # https://callmefred.com/how-to-connect-python-to-google-sheets/
@@ -12,7 +13,7 @@ b_column_values = sh.col_values(2)
 c_column_values = sh.col_values(3)  
 
 current_datetime = datetime.now()
-formatted_datetime = current_datetime.strftime("%#m/%#d/%Y %H:%M:%S")
+formatted_datetime = current_datetime.strftime("%#m/%#d/%Y")
 test_day = "1/7/2024"
 #print("Formatted Date and Time:", formatted_datetime)
 
@@ -26,6 +27,7 @@ for i in range(1, min_length):
         c_value = c_column_values[i]
 
     # Check if A column value is not empty
+    # Reminder change test_day to formatted_datetime
         if a_value == 'FALSE' and (b_value[:-9] == test_day or b_value[:-8] == test_day):
             print(f"Value in Column C: {c_value}")
 

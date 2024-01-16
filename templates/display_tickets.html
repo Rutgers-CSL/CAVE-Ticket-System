@@ -10,24 +10,30 @@
     <title>Cave Queue</title>
 </head>
 <body>
-    <h1>Welcome to the CAVE</h1>
+    <div class="topbox">
+        <h1>Welcome to the CAVE</h1>
+    </div>
     <div class="row">
-        <div class="col-sm-4" style="background-color:lavender;">
+        <div class="col-sm-3" style="text-align:center; background-color: #B01114; height: 90vh; color: white;">
+            <br></br>
+            <br></br>
+            <br></br>
             <h2>Haven't signed in yet?</h2>
+            <br></br>
             <a href="https://forms.gle/YL14kWGLV7bRdm5V9">
-                <img src="{{ url_for('static', filename='Images/frame.png') }}" alt="Logo">
-                <p>Scan to get yourself onto the queue!</p>
+                <img src="{{ url_for('static', filename='Images/frame.png') }}" alt="QR Code">
             </a>
+            <br></br>
+            <p>Scan to get yourself onto the queue!</p>
         </div>
-        <div class="col-sm-8" style="background-color:lavenderblush;">
+        <div class="col-sm-8" style="text-align: center;">
             <h2>Queue</h2>
             <ul>
                 {% for ticket in tickets %}
-                    <li>{{ ticket.c_value }}</li>
+                    <p>{{ ticket.c_value }}</p>
                 {% endfor %}
             </ul>
-        </div>
+        </div> 
     </div>
-    
 </body>
 </html>

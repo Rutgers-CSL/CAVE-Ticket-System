@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Tickets</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cave Queue</title>
 </head>
 <body>
-    <h1>Tickets to Display</h1>
-    <ul>
-        {% for ticket in tickets %}
-            <li>{{ ticket.c_value }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Welcome to the CAVE</h1>
+    <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">
+            <h2>Haven't signed in yet?</h2>
+            <a href="https://forms.gle/YL14kWGLV7bRdm5V9">
+                <img src="{{ url_for('static', filename='Images/frame.png') }}" alt="Logo">
+                <p>Scan to get yourself onto the queue!</p>
+            </a>
+        </div>
+        <div class="col-sm-8" style="background-color:lavenderblush;">
+            <h2>Queue</h2>
+            <ul>
+                {% for ticket in tickets %}
+                    <li>{{ ticket.c_value }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
 </body>
 </html>

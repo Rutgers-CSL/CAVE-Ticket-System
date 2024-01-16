@@ -1,8 +1,10 @@
 import gspread
 from datetime import datetime
 from flask import Flask, render_template
+# from flask_socketio import SocketIO
 
 app = Flask(__name__)
+app.static_folder = 'static'
 
 @app.route('/')
 
@@ -20,7 +22,7 @@ def display_tickets():
 
     # Get current date and time
     current_datetime = datetime.now()
-    formatted_datetime = current_datetime.strftime("%#m/%#d/%Y %H:%M:%S")
+    formatted_datetime = current_datetime.strftime("%#m/%#d/%Y")
     test_day = "1/7/2024"
 
     # Find the minimum length of both columns

@@ -14,7 +14,7 @@
         <h1>Welcome to the CAVE</h1>
     </div>
     <div class="row">
-        <div class="col-sm-3" style="text-align:center; background-color: #B01114; height: 90vh; color: white;">
+        <div class="col-sm-3" style="text-align:center; background-color: #B01114; height: 100vh; color: white;">
             <br></br>
             <br></br>
             <br></br>
@@ -28,11 +28,12 @@
         </div>
         <div class="col-sm-8" style="text-align: center;">
             <h2>Queue</h2>
-            <ul>
+            <p>________________________________________</p>
+            <l>
                 {% for ticket in tickets %}
                     <p>{{ ticket.c_value }}</p>
                 {% endfor %}
-            </ul>
+            </l>
         </div> 
     </div>
 </body>

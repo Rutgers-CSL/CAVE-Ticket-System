@@ -1,7 +1,6 @@
 import gspread
 from datetime import datetime
 from flask import Flask, render_template
-# from flask_socketio import SocketIO
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -35,7 +34,6 @@ def display_tickets():
         b_value = b_column_values[i]
         c_value = c_column_values[i]
 
-        # Check if A column value is not empty
         if a_value == 'FALSE' and (b_value[:-9] == test_day or b_value[:-8] == test_day):
             tickets_to_display.append({"c_value": c_value})
 

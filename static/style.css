@@ -1,21 +1,31 @@
 body {
-    font-family: verdana;
+    font-family: 'Trebuchet MS', sans-serif;
     background-color: black;
+    text-align: center;
     color: white;
 }
 
 h1 {
+    margin-top: 10px; 
+    font-size: 50px;
+}
+
+h2 {
     margin-top: 20px; /* Adjust as needed */
-    text-align: center;
+    font-size: 45px;
+}
+
+p {
+    font-size: 20px;
 }
 
 .topbox{
     background-color: #B01114;
     color: white;
     height: 100%;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
 }
 
   

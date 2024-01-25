@@ -24,6 +24,7 @@ p {
     color: white;
     height: 100%;
     width: 100vw;
+    padding-top: 50px;
     overflow: hidden;
     border-bottom: 3px solid black;
 }

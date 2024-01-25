@@ -1,3 +1,5 @@
+#https://callmefred.com/how-to-connect-python-to-google-sheets/
+
 import gspread
 from datetime import datetime
 from flask import Flask, render_template
@@ -42,3 +44,4 @@ def display_tickets():
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
+

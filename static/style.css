@@ -23,7 +23,7 @@ p {
     background-color: #B01114;
     color: white;
     height: 100%;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     border-bottom: 3px solid black;
 }

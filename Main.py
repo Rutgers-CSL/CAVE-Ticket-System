@@ -23,7 +23,12 @@ def display_tickets():
 
     # Get current date and time
     current_datetime = datetime.now()
-    formatted_datetime = current_datetime.strftime("%#m/%#d/%Y")
+
+    #For Windows
+    #formatted_datetime = current_datetime.strftime("%#m/%#d/%Y")
+
+    #For Linux
+    formatted_datetime = current_datetime.strftime('%-m/%-d/%Y')
 
     # Find the minimum length of both columns
     min_length = min(len(a_column_values), len(c_column_values))

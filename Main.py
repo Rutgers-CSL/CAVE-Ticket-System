@@ -25,13 +25,14 @@ def display_tickets():
     current_datetime = datetime.now()
 
     #For Windows
-    #formatted_datetime = current_datetime.strftime("%#m/%#d/%Y")
+    formatted_datetime = current_datetime.strftime("%#m/%#d/%Y")
 
     #For Linux
-    formatted_datetime = current_datetime.strftime('%-m/%-d/%Y')
+    #formatted_datetime = current_datetime.strftime('%-m/%-d/%Y')
 
     # Find the minimum length of both columns
     min_length = min(len(a_column_values), len(c_column_values))
+    min_length = min(min_length, len(b_column_values))
 
     # Filter tickets based on conditions
     tickets_to_display = []
@@ -49,4 +50,3 @@ def display_tickets():
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
-

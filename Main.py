@@ -18,9 +18,9 @@ def display_tickets():
     sh = gc.open("(F24/S25) iLab Dashboard").sheet1
 
     # Get column values
-    a_column_values = sh.col_values(1) 
-    b_column_values = sh.col_values(3)
-    c_column_values = sh.col_values(4)
+    checkmark_column = sh.col_values(1) 
+    timestamp_column = sh.col_values(3)
+    name_column = sh.col_values(4)
 
     # Get current date and time
     current_datetime = datetime.now()
@@ -32,18 +32,18 @@ def display_tickets():
         formatted_datetime = current_datetime.strftime('%-m/%-d/%Y')
 
     # Find the minimum length of both columns
-    min_length = min(len(a_column_values), len(c_column_values))
-    min_length = min(min_length, len(b_column_values))
+    min_length = min(len(checkmark_column), len(name_column))
+    min_length = min(min_length, len(timestamp_column))
 
     # Filter tickets based on conditions
     tickets_to_display = []
     for i in range(1, min_length):
-        a_value = a_column_values[i]
-        b_value = b_column_values[i]
-        c_value = c_column_values[i]
+        checkmark_val = checkmark_column[i]
+        timestamp_val = timestamp_column[i]
+        name_val = name_column[i]
 
-        if a_value == 'FALSE' and (b_value[:-9] == formatted_datetime or b_value[:-8] == formatted_datetime):
-            tickets_to_display.append({"c_value": c_value})
+        if checkmark_val == 'FALSE' and (timestamp_val[:-9] == formatted_datetime or timestamp_val[:-8] == formatted_datetime):
+            tickets_to_display.append({"c_value": name_val})
 
 
     # Render the template with the filtered tickets

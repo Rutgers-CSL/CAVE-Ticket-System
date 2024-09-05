@@ -26,7 +26,7 @@ def display_tickets():
     current_datetime = datetime.now()
 
     os_type = platform.system()
-    if os_type == 'nt':
+    if os_type == "Windows":
         formatted_datetime = current_datetime.strftime("%#m/%#d/%Y")
     else:
         formatted_datetime = current_datetime.strftime('%-m/%-d/%Y')

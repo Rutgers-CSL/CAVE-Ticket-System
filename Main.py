@@ -14,7 +14,7 @@ def display_tickets():
     gc = gspread.service_account(filename="cred.json")
 
     # Open the Google Sheets document and select the sheet
-    sh = gc.open("Ticket (Responses)").sheet1
+    sh = gc.open("(F24/S25) iLab Dashboard").sheet1
 
     # Get column values
     a_column_values = sh.col_values(1) 

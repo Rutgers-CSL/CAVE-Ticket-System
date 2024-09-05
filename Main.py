@@ -49,4 +49,4 @@ def display_tickets():
     return render_template('display_tickets.html', tickets=tickets_to_display)
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=8080, debug=True)
+    app.run(host="127.0.0.1", debug=True)

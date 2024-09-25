@@ -24,6 +24,7 @@ def display_tickets():
         name_column = sh.col_values(4)
     except:
         # Retry in a couple of seconds
+        print("Error retrieving data. Retrying in 5 seconds...")
         time.sleep(5)
         checkmark_column = sh.col_values(1)
         timestamp_column = sh.col_values(3)

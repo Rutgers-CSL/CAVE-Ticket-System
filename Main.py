@@ -2,7 +2,8 @@
 
 import platform
 import gspread
-from datetime import datetime, time
+import time
+from datetime import datetime
 from flask import Flask, render_template
 
 app = Flask(__name__)

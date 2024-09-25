@@ -2,7 +2,7 @@
 
 import platform
 import gspread
-from datetime import datetime
+from datetime import datetime, time
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -18,9 +18,16 @@ def display_tickets():
     sh = gc.open("(F24/S25) iLab Dashboard").sheet1
 
     # Get column values
-    checkmark_column = sh.col_values(1) 
-    timestamp_column = sh.col_values(3)
-    name_column = sh.col_values(4)
+    try :
+        checkmark_column = sh.col_values(1) 
+        timestamp_column = sh.col_values(3)
+        name_column = sh.col_values(4)
+    except:
+        # Retry in a couple of seconds
+        time.sleep(5)
+        checkmark_column = sh.col_values(1)
+        timestamp_column = sh.col_values(3)
+        name_column = sh.col_values(4)
 
     # Get current date and time
     current_datetime = datetime.now()

@@ -9,6 +9,32 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='Images/CSLlogo.jpg') }}" type="image/jpg">
     <title>CSL Queue</title>
+    <style>
+        .loading {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #B01114;
+            border-radius: 50%;
+            border-top: 2px solid #fff;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <div class="topbox">
@@ -37,8 +63,15 @@
             </l>
         </div> 
     </div>
+    <div id="loading" class="loading"></div>
 </body>
 <script type="text/javascript">
-    setInterval('window.location.reload()', 30000);
+    function refreshPage() {
+        document.getElementById('loading').style.display = 'block';
+        setTimeout(function() {
+            window.location.reload();
+        }, 500); // Delay reload by 500ms to show loading icon
+    }
+    setInterval(refreshPage, 30000);
 </script>
 </html>

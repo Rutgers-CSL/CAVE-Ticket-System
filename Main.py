@@ -1,5 +1,6 @@
 import platform
 import logging
+import socket
 import time
 from typing import List, Dict
 from datetime import datetime
@@ -22,6 +23,15 @@ CREDENTIALS_FILE = "cred.json"
 SPREADSHEET_NAME = "(F24/S25) iLab Dashboard"
 MAX_RETRIES = 3
 RETRY_DELAY = 5
+
+def check_internet_connection() -> bool:
+    """Check if there's an active internet connection."""
+    try:
+        # Attempt to connect to Google's DNS server
+        socket.create_connection(("8.8.8.8", 53), timeout=3)
+        return True
+    except OSError:
+        return False
 
 def get_formatted_date() -> str:
     """Get the current date formatted based on the OS."""
@@ -70,6 +80,13 @@ def get_column_values(sheet: gspread.Spreadsheet, col: int) -> List[str]:
 @app.route('/')
 def display_tickets():
     logger.info("Received request to display tickets")
+    
+    if not check_internet_connection():
+        logger.error("No internet connection detected")
+        no_internet_message = {"c_value": "Please connect your device to the internet."}
+        session['current_tickets'] = [no_internet_message]
+        return render_template('display_tickets.html', tickets=session['current_tickets'])
+    
     try:
         sheet = connect_to_sheets()
         logger.info("Fetching column values")

@@ -1,22 +1,22 @@
 body {
     font-family: 'Trebuchet MS', sans-serif;
-    background-color: #f5f0e1; /* Cream background to match the right section */
-    color: #3e3e3e; /* Warm gray text */
+    background-color: #f5f0e1; 
+    color: #95A45D; 
     margin: 0;
     padding: 0;
 }
 
 .left-section {
     background-color: #D8BFA7; 
-    color: #3e3e3e;
     height: 100vh;
     padding: 30px 20px; 
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .welcome-box {
-    margin-bottom: 40px; /* Space between the welcome text and the QR code */
+    margin-bottom: 40px; 
 }
 
 .welcome-text {
@@ -48,26 +48,27 @@ h3 {
 }
 
 .qr-code {
-    width: 60%; /* Adjust the size of the QR code */
+    width: 60%; 
     height: auto;
-    margin: 30px 0; /* Add vertical space */
+    margin: 30px 0; 
 }
 
 p {
     font-size: 18px;
-    color: #3e3e3e;
+    color: white;
 }
 
 .right-section {
-    background-color: #f5f0e1; /* Light cream color for the right section */
-    padding: 50px;
+    background-color: #f5f0e1; 
+    padding: 10px;
     min-height: 100vh;
-    text-align: left;
+    text-align: center;
+    border: 40px solid #596238; 
 }
 
 .queue-divider {
     border: none;
-    border-top: 2px solid #8b572a; /* Coffee brown divider */
+    border-top: 2px solid #95A45D; 
     width: 80%;
     margin: 10px auto;
 }
@@ -77,7 +78,7 @@ p {
 }
 
 .queue-card {
-    background-color: #fff8e1; /* Light cream for queue cards */
+    background-color: #fff8e1; 
     color: #3e3e3e;
     padding: 15px;
     margin: 15px auto;

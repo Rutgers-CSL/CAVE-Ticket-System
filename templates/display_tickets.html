@@ -10,63 +10,33 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='Images/CSLlogo.png') }}" type="image/jpg">
     <title>CSL Queue</title>
-    <style>
-        .loading {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #B01114;
-            border-radius: 50%;
-            border-top: 2px solid #fff;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Left Section: Sign-in Area -->
-            <div class="col-sm-4 left-section" style="background-color: #d2b48c; height: 100vh; color: #3e3e3e; padding: 50px;">
-                <h1>Welcome to the</h1>
-                <div class="csl-logo">
-                    <img src="{{ url_for('static', filename='Images/CSL.webp') }}" alt="Coffee Logo" style="width: 100%; height: auto; margin-left: 10px;">
+            <div class="col-sm-4 left-section">
+                <div class="welcome-box">
+                    <h1 class="welcome-text">Welcome to the</h1>
+                    <div class="csl-logo">
+                        <span class="csl-text">CSL</span>
+                        <img src="{{ url_for('static', filename='Images/CSLlogo.png') }}" alt="Coffee Logo" class="coffee-logo">
+                    </div>
                 </div>
-                <h3 style="margin-top: 30px; font-size: 30px;">Haven't signed in yet?</h3>
+                <h3>Haven't signed in yet?</h3>
                 <a href="https://forms.gle/YL14kWGLV7bRdm5V9">
-                    <img src="{{ url_for('static', filename='Images/frame.png') }}" alt="QR Code" class="qr-code" style="max-width: 80%; height: auto; margin: 30px 0;">
+                    <img src="{{ url_for('static', filename='Images/QRCode.png') }}" alt="QR Code" class="qr-code">
                 </a>
                 <p>or sign in using: <br>shortenedURL.com</p>
             </div>
             <!-- Right Section: Queue Area -->
-            <div class="col-sm-8 right-section" style="background-color: #f5f0e1; padding: 50px; min-height: 100vh;">
-                <h2 style="color: #8b572a; font-size: 40px;">Queue</h2>
-                <hr style="border: none; border-top: 2px solid #8b572a; width: 80%; margin: 10px auto;">
-                <div class="queue-list" style="padding-top: 20px;">
+            <div class="col-sm-8 right-section">
+                <h2>Queue</h2>
+                <hr class="queue-divider">
+                <div class="queue-list">
                     {% for ticket in tickets %}
-                    <div class="queue-card" style="background-color: #fff8e1; color: #3e3e3e; padding: 15px; margin: 15px auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 600px;">
+                    <div class="queue-card">
                         <p>{{ ticket.c_value }}</p>
                     </div>
                     {% endfor %}

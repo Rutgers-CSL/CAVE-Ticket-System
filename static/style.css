@@ -1,66 +1,65 @@
 body {
     font-family: 'Trebuchet MS', sans-serif;
-    background-color: #2b2b2b; /* Dark background for contrast */
+    background-color: #f5f0e1; /* Cream background to match the right section */
     color: #3e3e3e; /* Warm gray text */
-    text-align: center;
     margin: 0;
     padding: 0;
 }
 
 .left-section {
-    background-color: #d2b48c; /* Warm tan color for left section */
-    color: #3e3e3e; /* Darker gray for text */
+    background-color: #D8BFA7; 
+    color: #3e3e3e;
     height: 100vh;
-    padding: 50px 20px;
+    padding: 30px 20px; 
+    display: flex;
+    flex-direction: column;
 }
 
 .welcome-box {
-    margin-top: 20px;
+    margin-bottom: 40px; /* Space between the welcome text and the QR code */
+}
+
+.welcome-text {
+    font-size: 38px; 
+    color: #B08968; 
+    margin-bottom: 0; 
 }
 
 .csl-logo {
     display: flex;
-    align-items: center;
-    margin-top: 20px;
+    margin-top: -10px; 
 }
 
 .csl-text {
-    font-size: 100px;
-    font-weight: bold;
-    color: #8b572a; /* Coffee brown color */
+    font-size: 160px;
+    color: #B08968; 
 }
 
 .coffee-logo {
-    width: 70px;
-    height: auto;
-    margin-left: 10px;
-}
-
-h1 {
-    font-size: 45px;
-    color: #8b572a;
-}
-
-h2 {
-    color: #8b572a;
-    font-size: 40px;
-    margin-top: 20px;
+    width: 45%; 
+    height: 80%;
+    margin-top: -50px; 
 }
 
 h3 {
     margin-top: 30px;
-    font-size: 30px;
+    font-size: 25px;
     color: #3e3e3e;
 }
 
 .qr-code {
-    max-width: 80%;
+    width: 60%; /* Adjust the size of the QR code */
     height: auto;
-    margin: 30px 0;
+    margin: 30px 0; /* Add vertical space */
+}
+
+p {
+    font-size: 18px;
+    color: #3e3e3e;
 }
 
 .right-section {
-    background-color: #f5f0e1; /* Light cream color */
+    background-color: #f5f0e1; /* Light cream color for the right section */
     padding: 50px;
     min-height: 100vh;
     text-align: left;
@@ -68,7 +67,7 @@ h3 {
 
 .queue-divider {
     border: none;
-    border-top: 2px solid #8b572a; /* Coffee brown */
+    border-top: 2px solid #8b572a; /* Coffee brown divider */
     width: 80%;
     margin: 10px auto;
 }
@@ -78,11 +77,43 @@ h3 {
 }
 
 .queue-card {
-    background-color: #fff8e1; /* Light cream card */
+    background-color: #fff8e1; /* Light cream for queue cards */
     color: #3e3e3e;
     padding: 15px;
     margin: 15px auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
+}
+
+.loading {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #B01114;
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

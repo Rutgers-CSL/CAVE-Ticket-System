@@ -1,31 +1,88 @@
 body {
     font-family: 'Trebuchet MS', sans-serif;
-    background-color: black;
+    background-color: #2b2b2b; /* Dark background for contrast */
+    color: #3e3e3e; /* Warm gray text */
     text-align: center;
-    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.left-section {
+    background-color: #d2b48c; /* Warm tan color for left section */
+    color: #3e3e3e; /* Darker gray for text */
+    height: 100vh;
+    padding: 50px 20px;
+}
+
+.welcome-box {
+    margin-top: 20px;
+}
+
+.csl-logo {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.csl-text {
+    font-size: 100px;
+    font-weight: bold;
+    color: #8b572a; /* Coffee brown color */
+}
+
+.coffee-logo {
+    width: 70px;
+    height: auto;
+    margin-left: 10px;
 }
 
 h1 {
-    margin-top: 10px; 
-    font-size: 50px;
+    font-size: 45px;
+    color: #8b572a;
 }
 
 h2 {
-    margin-top: 20px; /* Adjust as needed */
-    font-size: 45px;
+    color: #8b572a;
+    font-size: 40px;
+    margin-top: 20px;
 }
 
-p {
-    font-size: 20px;
+h3 {
+    margin-top: 30px;
+    font-size: 30px;
+    color: #3e3e3e;
 }
 
-.topbox{
-    background-color: #B01114;
-    color: white;
-    height: 100%;
-    width: 100vw;
-    overflow: hidden;
-    border-bottom: 3px solid black;
+.qr-code {
+    max-width: 80%;
+    height: auto;
+    margin: 30px 0;
 }
 
-  
+.right-section {
+    background-color: #f5f0e1; /* Light cream color */
+    padding: 50px;
+    min-height: 100vh;
+    text-align: left;
+}
+
+.queue-divider {
+    border: none;
+    border-top: 2px solid #8b572a; /* Coffee brown */
+    width: 80%;
+    margin: 10px auto;
+}
+
+.queue-list {
+    padding-top: 20px;
+}
+
+.queue-card {
+    background-color: #fff8e1; /* Light cream card */
+    color: #3e3e3e;
+    padding: 15px;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}

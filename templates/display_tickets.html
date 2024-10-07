@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='Images/CSLlogo.jpg') }}" type="image/jpg">
+    <link rel="icon" href="{{ url_for('static', filename='Images/CSLlogo.png') }}" type="image/jpg">
     <title>CSL Queue</title>
     <style>
         .loading {
@@ -20,6 +21,7 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .loading::after {
             content: '';
             display: inline-block;
@@ -30,48 +32,59 @@
             border-top: 2px solid #fff;
             animation: spin 1s linear infinite;
         }
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="topbox">
-        <h1>Welcome to the CSL</h1>
-    </div>
-    <div class="row">
-        <div class="col-sm-4" style="background-color: #B01114; height: 100vh; color: white; margin-left: 0; padding-left: 2%;">
-            <br></br>
-            <br></br>
-            <br></br>
-            <h2>Haven't signed in yet?</h2>
-            <br></br>
-            <a href="https://forms.gle/YL14kWGLV7bRdm5V9">
-                <img src="{{ url_for('static', filename='Images/frame.png') }}" alt="QR Code">
-            </a>
-            <br></br>
-            <p>Scan to get yourself onto the queue!</p>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Section: Sign-in Area -->
+            <div class="col-sm-4 left-section" style="background-color: #d2b48c; height: 100vh; color: #3e3e3e; padding: 50px;">
+                <h1>Welcome to the</h1>
+                <div class="csl-logo">
+                    <img src="{{ url_for('static', filename='Images/CSL.webp') }}" alt="Coffee Logo" style="width: 100%; height: auto; margin-left: 10px;">
+                </div>
+                <h3 style="margin-top: 30px; font-size: 30px;">Haven't signed in yet?</h3>
+                <a href="https://forms.gle/YL14kWGLV7bRdm5V9">
+                    <img src="{{ url_for('static', filename='Images/frame.png') }}" alt="QR Code" class="qr-code" style="max-width: 80%; height: auto; margin: 30px 0;">
+                </a>
+                <p>or sign in using: <br>shortenedURL.com</p>
+            </div>
+            <!-- Right Section: Queue Area -->
+            <div class="col-sm-8 right-section" style="background-color: #f5f0e1; padding: 50px; min-height: 100vh;">
+                <h2 style="color: #8b572a; font-size: 40px;">Queue</h2>
+                <hr style="border: none; border-top: 2px solid #8b572a; width: 80%; margin: 10px auto;">
+                <div class="queue-list" style="padding-top: 20px;">
+                    {% for ticket in tickets %}
+                    <div class="queue-card" style="background-color: #fff8e1; color: #3e3e3e; padding: 15px; margin: 15px auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 600px;">
+                        <p>{{ ticket.c_value }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-        <div class="col-sm-8" style="text-align: center;">
-            <h2>Queue</h2>
-            <p>________________________________________</p>
-            <l>
-                {% for ticket in tickets %}
-                    <p>{{ ticket.c_value }}</p>
-                {% endfor %}
-            </l>
-        </div> 
     </div>
     <div id="loading" class="loading"></div>
 </body>
+
 <script type="text/javascript">
     function refreshPage() {
         document.getElementById('loading').style.display = 'block';
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.reload();
         }, 500); // Delay reload by 500ms to show loading icon
     }
     setInterval(refreshPage, 30000);
 </script>
+
 </html>

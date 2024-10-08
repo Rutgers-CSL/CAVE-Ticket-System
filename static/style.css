@@ -13,13 +13,16 @@ h2{
 }
 
 .left-section {
-    background-color: #D8BFA7; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
     height: 100vh;
     padding: 30px 20px; 
-    flex-direction: column;
-    align-items: center;
+    background-color: #D8BFA7; 
     overflow: hidden;
 }
+
 
 .welcome-box {
     margin-bottom: 10px; 
@@ -54,10 +57,11 @@ h3 {
 }
 
 .qr-code {
-    width: 50%; 
+    width: 100%; 
     height: auto;
     border: 5px solid black;
-    margin: 15px;
+    margin: 15px auto; 
+    display: block; 
 }
 
 .left-section > p {

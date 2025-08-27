@@ -2,3 +2,4 @@ cred.json
 run_main.sh
 .venv
 .conda
+.DS_Store
